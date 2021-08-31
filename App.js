@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
+import Curso from './Cursos';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+export default class App extends Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state =
+    {
+      dados:
+      [
+        {id:'1', nome:'Desenvolvimento de Sistemas', des:"Programar top", imagen:"generica"},
+        {id:'2', nome:'Administração', des:"Programar top", imagen:"generica"},
+        {id:'3', nome:'Design digital', des:"Programar top", imagen:"generica"},
+        {id:'4', nome:'Mecanica', des:"Programar top", imagen:"generica"}
+      ]
+    }
+  }
+
+ 
+
+  render()
+  {
+    return (
+      <View style={styles.container}>
+        <FlatList 
+        data={this.state.dados} keyExtractor={(item)=>item.id} renderItem={({item})=><Curso dados={item}/>}
+        />
+      </View>
+    );
+  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#80a2d9',
     alignItems: 'center',
     justifyContent: 'center',
   },
