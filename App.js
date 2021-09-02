@@ -12,10 +12,11 @@ export default class App extends Component
     {
       dados:
       [
-        {id:'1', nome:'Desenvolvimento de Sistemas', des:"Programar top", imagen:"generica"},
-        {id:'2', nome:'Administração', des:"Programar top", imagen:"generica"},
+        {id:'1', nome:'Desenvolvimento de Sistemas', 
+        des:"Aprenda a desenvolver sistemas e projetos com várias linguagens de programação.", imagen:"DS.js"},
+        {/*{id:'2', nome:'Administração', des:"Programar top", imagen:"generica"},
         {id:'3', nome:'Design digital', des:"Programar top", imagen:"generica"},
-        {id:'4', nome:'Mecanica', des:"Programar top", imagen:"generica"}
+      {id:'4', nome:'Mecanica', des:"Programar top", imagen:"generica"}*/}
       ]
     }
   }
@@ -26,7 +27,7 @@ export default class App extends Component
   {
     return (
       <View style={styles.container}>
-        <FlatList 
+        <FlatList style={styles.FlatList}
         data={this.state.dados} keyExtractor={(item)=>item.id} renderItem={({item})=><Curso dados={item}/>}
         />
       </View>
@@ -41,4 +42,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  FlatList: 
+  {
+    marginTop: 100,
+  }
 });
